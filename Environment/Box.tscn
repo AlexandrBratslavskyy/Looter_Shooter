@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://rakycqc547mp"]
+
+[ext_resource type="Script" path="res://Environment/Box.gd" id="1_61b71"]
+[ext_resource type="Shader" path="res://Environment/Box.gdshader" id="1_sqj0o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgs5i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_73nhv"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_sqj0o")
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_55fw2"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_73nhv")
+
+[node name="Box" type="StaticBody3D"]
+script = ExtResource("1_61b71")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mgs5i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_55fw2")
+skeleton = NodePath("")

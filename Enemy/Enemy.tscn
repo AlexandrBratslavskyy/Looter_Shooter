@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://q2f1bk7sjli4"]
+
+[ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_fc5m1"]
+[ext_resource type="Resource" uid="uid://celhuhrbhc3hk" path="res://Enemy/EnemyHealth.tres" id="2_do5bk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nmuqd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_alcry"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_fc5m1")
+health = ExtResource("2_do5bk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_nmuqd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_alcry")
