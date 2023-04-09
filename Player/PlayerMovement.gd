@@ -36,11 +36,11 @@ func _physics_process(delta) -> void:
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+
 	# Handle Shooting
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
-		
+
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -60,11 +60,11 @@ func _input(event) -> void:
 		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-90), deg_to_rad(90) )
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
-		
+
 func shoot() -> void:
 	if not gunRay.is_colliding():
 		return
 	var cl := gunRay.get_collider()
-	
+
 	if cl.has_method("take_damage"):
 		cl.take_damage()

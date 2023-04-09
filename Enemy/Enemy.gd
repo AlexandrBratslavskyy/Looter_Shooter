@@ -37,9 +37,9 @@ func _ready() -> void:
 func take_damage() -> void:
 	print("enemy")
 	health.decrease_health()
-	
+
 func change_health(value: int) -> void:
 	print(value)
-	
+
 func no_health() -> void:
 	print("dead")

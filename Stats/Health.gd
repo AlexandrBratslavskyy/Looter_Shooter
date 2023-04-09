@@ -9,7 +9,7 @@ var cur_health : int
 
 signal current_health(value) # only useful for health change and not to indicate damage
 
-# damage vs healing (signal very up health)
+# damage vs healing (signal very down health or masive damage)
 signal down_health
 signal up_health
 
