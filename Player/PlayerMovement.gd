@@ -19,7 +19,7 @@ func _ready() -> void:
 	# Captures mouse
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	gunRay.add_exception(self)
-	print(health.cur_health)
+#	print(health.cur_health)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:

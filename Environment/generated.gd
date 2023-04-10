@@ -5,11 +5,13 @@ extends StaticBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	mesh.mesh.clear_surfaces()
 	_mesh_circle()
 	_col()
 
 func _mesh_circle():
 	var surface_array = []
+	surface_array.resize(Mesh.ARRAY_MAX)
 
 	# PackedVector**Arrays for mesh construction.
 	var verts = PackedVector3Array()
@@ -20,8 +22,6 @@ func _mesh_circle():
 	var rings = 50
 	var radial_segments = 50
 	var radius = 1
-
-	surface_array.resize(Mesh.ARRAY_MAX)
 
 	# Vertex indices.
 	var thisrow = 0
@@ -67,7 +67,6 @@ func _mesh_circle():
 		prevrow = thisrow
 		thisrow = point
 
-
 	# Assign arrays to surface array.
 	surface_array[Mesh.ARRAY_VERTEX] = verts
 	surface_array[Mesh.ARRAY_TEX_UV] = uvs
@@ -77,17 +76,6 @@ func _mesh_circle():
 	# Create mesh surface from mesh array.
 	# No blendshapes, lods, or compression used.
 	mesh.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array)
-
-func _mesh_square():
-	var surface_array = []
-
-	# PackedVector**Arrays for mesh construction.
-	var verts = PackedVector3Array()
-	var uvs = PackedVector2Array()
-	var normals = PackedVector3Array()
-	var indices = PackedInt32Array()
-
-	# TODO make square
 
 func _col():
 	var verts = PackedVector3Array()
@@ -111,7 +99,3 @@ func _col():
 			verts.append(vert)
 
 	col.shape.points = verts
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
