@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6lp1n5k0j1pq"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_am1nk"]
-[ext_resource type="Resource" uid="uid://c2wk57ibfljg8" path="res://Player/PlayerHealth.tres" id="2_hjpwy"]
+[ext_resource type="Resource" uid="uid://bequytjf6mdrs" path="res://Player/PlayerStats.tres" id="2_0ubgf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hu3e2"]
 
@@ -9,7 +9,7 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_am1nk")
-health = ExtResource("2_hjpwy")
+p_stats_shared = ExtResource("2_0ubgf")
 
 [node name="Shape" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_hu3e2")

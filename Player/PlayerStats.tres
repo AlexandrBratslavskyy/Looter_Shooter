@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatsShared" load_steps=2 format=3 uid="uid://bequytjf6mdrs"]
+
+[ext_resource type="Script" path="res://Stats/StatsShared.gd" id="1_3yjlb"]
+
+[resource]
+script = ExtResource("1_3yjlb")
+p_health_max = 10
+p_velocity = 5.0
+p_velocity_jump = 4.5
+p_velocity_crouch = 0.0

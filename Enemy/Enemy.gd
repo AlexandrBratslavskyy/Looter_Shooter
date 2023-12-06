@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var health: Health
+@export var p_stats_shared: StatsShared
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -9,13 +9,13 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:
-	health.current_health.connect(change_health)
-	health.no_cur_health.connect(no_health)
+	p_stats_shared.s_health_cur.connect(change_health)
+	p_stats_shared.s_health_cur_none.connect(no_health)
 
-#func _physics_process(delta):
-#	# Add the gravity.
-#	if not is_on_floor():
-#		velocity.y -= gravity * delta
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 #
 #	# Handle Jump.
 #	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -32,14 +32,15 @@ func _ready() -> void:
 #		velocity.x = move_toward(velocity.x, 0, SPEED)
 #		velocity.z = move_toward(velocity.z, 0, SPEED)
 
-#	move_and_slide()
+	move_and_slide()
 
 func take_damage() -> void:
-	print("enemy")
-	health.decrease_health()
+	print("enemy " + name)
+	p_stats_shared.take_damage()
 
 func change_health(value: int) -> void:
 	print(value)
 
 func no_health() -> void:
-	print("dead")
+	print("dead " + name)
+	queue_free()

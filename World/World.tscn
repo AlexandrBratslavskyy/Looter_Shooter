@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cug1474aj4ccp"]
+
+[ext_resource type="PackedScene" uid="uid://bysdjbkmt1ep1" path="res://Environment/Ground.tscn" id="1_5ec5b"]
+[ext_resource type="PackedScene" uid="uid://rakycqc547mp" path="res://Environment/Box.tscn" id="2_vcg8y"]
+[ext_resource type="PackedScene" uid="uid://b6lp1n5k0j1pq" path="res://Player/PlayerCharacter.tscn" id="3_wvrnc"]
+[ext_resource type="PackedScene" uid="uid://q2f1bk7sjli4" path="res://Enemy/Enemy.tscn" id="4_8lprf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3c1f8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_mc6a6"]
+sky_material = SubResource("ProceduralSkyMaterial_3c1f8")
+
+[sub_resource type="Environment" id="Environment_5ueb1"]
+background_mode = 2
+sky = SubResource("Sky_mc6a6")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_5ueb1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" parent="Environment" instance=ExtResource("1_5ec5b")]
+
+[node name="Box" parent="Environment" instance=ExtResource("2_vcg8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4223, 1.87418, 0)
+
+[node name="Box2" parent="Environment" instance=ExtResource("2_vcg8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60466, 0.691532, 6.48538)
+
+[node name="Box3" parent="Environment" instance=ExtResource("2_vcg8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8446, 4.23962, 5.03141)
+
+[node name="Player" parent="." instance=ExtResource("3_wvrnc")]
+transform = Transform3D(-0.20967, 0, -0.977772, 0, 1, 0, 0.977772, 0, -0.20967, -2.90608, 1.50971, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("4_8lprf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51791, 2.55307, 5.63453)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_8lprf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38774, 2.55307, 5.63453)

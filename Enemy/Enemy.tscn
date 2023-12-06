@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://q2f1bk7sjli4"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_fc5m1"]
-[ext_resource type="Resource" uid="uid://celhuhrbhc3hk" path="res://Enemy/EnemyHealth.tres" id="2_do5bk"]
+[ext_resource type="Resource" uid="uid://csh3cy13n0odt" path="res://Enemy/EnemyStats.tres" id="2_rwryf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nmuqd"]
 
@@ -9,7 +9,7 @@
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_fc5m1")
-health = ExtResource("2_do5bk")
+p_stats_shared = ExtResource("2_rwryf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_nmuqd")

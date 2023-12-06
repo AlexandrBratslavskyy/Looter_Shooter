@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="Health" load_steps=2 format=3 uid="uid://c2wk57ibfljg8"]
-
-[ext_resource type="Script" path="res://Stats/Health.gd" id="1_iplkr"]
-
-[resource]
-script = ExtResource("1_iplkr")
-max_health = 11
